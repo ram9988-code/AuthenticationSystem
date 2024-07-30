@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 const CreateFormSchema = z.object({
   email: z
@@ -125,9 +126,21 @@ export const CreateForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">Create Account</Button>
+          <Button variant={"secondary"} type="submit">
+            Create Account
+          </Button>
         </form>
       </Form>
+      <div className="flex justify-center items-center pt-10">
+        <h1>
+          I have account?{" "}
+          <span>
+            <Link className="text-green-500 font-bold" href={"/login"}>
+              Login
+            </Link>
+          </span>
+        </h1>
+      </div>
     </div>
   );
 };

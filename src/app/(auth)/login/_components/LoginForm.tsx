@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const CreateFormSchema = z.object({
   email: z
@@ -96,9 +97,24 @@ export const LoginForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">Login</Button>
+          <FormDescription>
+            <Link href={"/auth/forgot-password"}>Forgot Passward?</Link>
+          </FormDescription>
+          <Button size={"lg"} variant={"secondary"} type="submit">
+            Login
+          </Button>
         </form>
       </Form>
+      <div className="flex justify-center items-center pt-10">
+        <h1>
+          Don&lsquo;t have account?{" "}
+          <span>
+            <Link className="text-green-500 font-bold" href={"/create-account"}>
+              Create Account
+            </Link>
+          </span>
+        </h1>
+      </div>
     </div>
   );
 };
