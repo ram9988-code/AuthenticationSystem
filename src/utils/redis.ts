@@ -1,5 +1,5 @@
 // import { Redis } from "ioredis";
-// require("dotenv").config();
+require("dotenv").config();
 
 // const redisClint = () => {
 //   if (process.env.REDIS_URL) {
@@ -14,6 +14,6 @@
 import { Redis } from "@upstash/redis";
 
 export const redis = new Redis({
-  url: "https://light-ram-57791.upstash.io",
-  token: "AeG_AAIjcDFmNmJjYjVlMzIyNjQ0ZjczOThlZDQ2ZjYwODFhZTQ0N3AxMA",
+  url: process.env.REDIS_URL_,
+  token: process.env.REDIS_TOKEN,
 });
