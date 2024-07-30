@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
@@ -61,10 +61,8 @@ export const CreateForm = () => {
         .post("/api/register", data)
         .then((response) => {
           toast.success("Registration Successful!");
-          cookies.set("activationToken", response.data.activationToken, {
-            path: "/",
-          });
-          router.push("/auth/email-varification");
+          cookies.set("activationToken", response.data.activationToken);
+          router.push(`/email-varification?${response.data.activationToken}`);
         })
         .catch((err) => {
           setError(err.response.data);
@@ -141,6 +139,7 @@ export const CreateForm = () => {
           </span>
         </h1>
       </div>
+      <Toaster position="top-right" />
     </div>
   );
 };

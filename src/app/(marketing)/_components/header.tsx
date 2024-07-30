@@ -8,6 +8,7 @@ import React from "react";
 
 const Header = () => {
   const router = useRouter();
+
   return (
     <header className="h-20 w-full border-b-2 border-slate-200 px-4">
       <div className="lg:max-w-screen-lg mx-auto flex items-center justify-between h-full">
@@ -29,6 +30,7 @@ const Header = () => {
         >
           Login
         </Button>
+        <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
       </div>
     </header>
   );

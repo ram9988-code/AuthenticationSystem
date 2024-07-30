@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -51,9 +51,10 @@ export const LoginForm = () => {
   async function onSubmit(data: CreateFormValues) {
     toast.success("Form submitted successfully!");
     try {
-      const values = await axios.post("/api/register", data);
-      console.log("Registration Successfull", values);
+      const values = await axios.post("/api/login", data);
+      toast.success("Registration Successfull");
       router.push("/");
+      console.log(values);
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -115,6 +116,7 @@ export const LoginForm = () => {
           </span>
         </h1>
       </div>
+      <Toaster />
     </div>
   );
 };
