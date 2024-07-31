@@ -7,7 +7,7 @@ import React from "react";
 interface HeaderProps {
   title: string;
 }
-const Header = ({ title }: HeaderProps) => {
+const page = ({ title }: HeaderProps) => {
   return (
     <div className="sticky top-0 bg-white pb-3 lg:pt-[20px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50">
       <Link href={"/courses"}>
@@ -21,4 +21,4 @@ const Header = ({ title }: HeaderProps) => {
   );
 };
 
-export default Header;
+export default page;
